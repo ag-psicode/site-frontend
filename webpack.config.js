@@ -16,9 +16,9 @@ const appHtmlTitle = 'Psicode';
  */
 module.exports = {
     entry: {
-        vendor: [
-            'lodash'
-        ],
+        // vendor: [
+        //     'lodash'
+        // ],
         bundle: path.join(dirApp, 'index')
     },
     resolve: {
