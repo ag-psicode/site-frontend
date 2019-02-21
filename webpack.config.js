@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Is the current build a development build
 const IS_DEV = (process.env.NODE_ENV === 'dev');
@@ -60,6 +61,11 @@ module.exports = {
             title: 'Psicode',
             chunks: ['servicos'],
             filename: "servicos.html"
+        }),
+
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ],
     module: {
@@ -84,7 +90,7 @@ module.exports = {
                         options: {
                             sourceMap: IS_DEV
                         }
-                    },
+                    }
                 ]
             },
 
@@ -92,7 +98,7 @@ module.exports = {
             {
                 test: /\.scss/,
                 use: [
-                    'style-loader',
+                    IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -105,7 +111,7 @@ module.exports = {
                             sourceMap: IS_DEV,
                             includePaths: [dirAssets]
                         }
-                    }
+                    },
                 ]
             },
 
