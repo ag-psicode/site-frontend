@@ -9,17 +9,18 @@ const dirNode = 'node_modules';
 const dirApp = path.join(__dirname, 'app');
 const dirAssets = path.join(__dirname, 'assets');
 
-const appHtmlTitle = 'Psicode';
-
 /**
  * Webpack Configuration
  */
 module.exports = {
     entry: {
+        home: path.join(dirApp, 'index'),
+        orcamento: path.join(dirApp, 'orcamento'),
+        portfolio: path.join(dirApp, 'portfolio'),
+        servicos: path.join(dirApp, 'servicos'),
         // vendor: [
         //     'lodash'
         // ],
-        bundle: path.join(dirApp, 'index')
     },
     resolve: {
         modules: [
@@ -34,8 +35,31 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.ejs'),
-            title: appHtmlTitle
+            template: path.join(__dirname, 'pages/index.ejs'),
+            title: 'Psicode',
+            chunks: ['home'],
+            filename: "index.html"
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'pages/orcamento.ejs'),
+            title: 'Psicode',
+            chunks: ['orcamento'],
+            filename: "orcamento.html",
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'pages/portfolio.ejs'),
+            title: 'Psicode',
+            chunks: ['portfolio'],
+            filename: "portfolio.html"
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'pages/servicos.ejs'),
+            title: 'Psicode',
+            chunks: ['servicos'],
+            filename: "servicos.html"
         })
     ],
     module: {
