@@ -44,21 +44,21 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'pages/orcamento.ejs'),
-            title: 'Psicode',
+            title: 'Orçamento - Psicode',
             chunks: ['orcamento'],
             filename: "orcamento.html",
         }),
 
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'pages/portfolio.ejs'),
-            title: 'Psicode',
+            title: 'Portfolio - Psicode',
             chunks: ['portfolio'],
             filename: "portfolio.html"
         }),
 
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'pages/servicos.ejs'),
-            title: 'Psicode',
+            title: 'Serviços - Psicode',
             chunks: ['servicos'],
             filename: "servicos.html"
         }),
