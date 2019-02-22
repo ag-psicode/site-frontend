@@ -1,9 +1,16 @@
-// Apply a natural box layout model to all elements
-// but allowing components to change
-// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+/** Import config styles */
+@import "config/reset";
+@import "config/variables";
+@import "config/root";
+
+/** Import components styles */
+@import "components/content";
+@import "components/header";
+@import "components/social-midia";
+@import "components/wrapper";
+
+/** Import pages styles */
+@import "pages/home";
+@import "pages/orcamento";
+@import "pages/portfolio";
+@import "pages/servicos";

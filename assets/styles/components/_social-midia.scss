@@ -1,0 +1,15 @@
+.social-midia {
+    position: absolute;
+    bottom: 40px;
+
+    &__item {
+        display: inline-block;
+        margin-right: 45px;
+    }
+
+    &__link {
+        font-size: 12px;
+        text-transform: lowercase;
+        display: inline-block;
+    }
+}
