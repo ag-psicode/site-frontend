@@ -1,7 +1,6 @@
 html {
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
@@ -23,4 +22,12 @@ a {
 
 ul {
     list-style-type: none;
+}
+
+strong, b {
+    font-weight: map-get($font-weight, medium);
+}
+
+p {
+    line-height: 20px;
 }

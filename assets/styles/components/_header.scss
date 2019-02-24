@@ -1,13 +1,19 @@
 .header {
     display: flex;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-left: inherit;
+    padding-right: inherit;
 
     &__brand {
         margin-right: 45px;
         font-weight: map-get($font-weight, medium);
         letter-spacing: 1px;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     &__navigation {
@@ -20,7 +26,7 @@
 
         &-link {
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: 12px;
             display: inline-block;
             letter-spacing: 1px;
 

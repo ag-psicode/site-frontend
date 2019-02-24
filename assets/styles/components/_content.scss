@@ -1,6 +1,13 @@
 .content {
     height: 100vh;
-    margin-top: -60px;
     display: flex;
     align-items: center;
+
+    &__introduction {
+        // max-width: 455px;
+
+        // &-inner {
+        //     max-width: 350px;
+        // }
+    }
 }
