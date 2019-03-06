@@ -4,10 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css">
+<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.helper.ie8.js"></script><![endif]-->
 </head>
 <body>
-    <div class="content">
-        <h1>Portfolio</h1>
+    <div class="wrapper">
+
+        <header class="header">
+            <a href="index.html" class="header__brand">Psicode</a>
+            <span class="header__toggle">toggle</span>
+
+            <nav class="header__navigation">
+                <ul>
+                    <li class="header__navigation-item">
+                        <a href="servicos.html" class="header__navigation-link">Serviços</a>
+                    </li>
+                    <li class="header__navigation-item">
+                        <a href="portfolio.html" class="header__navigation-link">Portfolio</a>
+                    </li>
+                    <li class="header__navigation-item">
+                        <a href="orcamento.html" class="header__navigation-link action">Orçamento</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            <div class="content__introduction">
+                <p class="content__introduction-inner">psicode</p>
+            </div>
+            <div class="content__page">
+
+                <div class="portfolio-slider">
+
+                    <div class="portfolio-slider__item">
+                        <img class="portfolio-slider__image" src="https://66.media.tumblr.com/3980320b01a65118fe5280cac93b07ac/tumblr_ozbvgqV0JU1v8kl8yo1_400.jpg" alt="">
+                        <div class="portfolio-slider__item-box">
+                            <h2 class="title">Lorem ipsum</h2>
+                            <p class="info">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+                            <a href="#" class="link"><img src="assets/images/portfolio-link.svg" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-slider__item">
+                        <img class="portfolio-slider__image" src="https://66.media.tumblr.com/6fbdfaa0dca03a27c21c1f1dc86f7eee/tumblr_o52hwwHsGO1vn5cpco1_400.jpg" alt="">
+                        <div class="portfolio-slider__item-box">
+                            <h2 class="title">Lorem ipsum</h2>
+                            <p class="info">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+                            <a href="#" class="link"><img src="assets/images/portfolio-link.svg" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-slider__item">
+                        <img class="portfolio-slider__image" src="https://i.pinimg.com/originals/79/7b/67/797b675c1511720899ab6fe18189d3c7.jpg" alt="">
+                        <div class="portfolio-slider__item-box">
+                            <h2 class="title">Lorem ipsum</h2>
+                            <p class="info">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+                            <a href="#" class="link"><img src="assets/images/portfolio-link.svg" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-slider__item">
+                        <img class="portfolio-slider__image" src="https://i.pinimg.com/originals/f9/19/d0/f919d0141f123121d3bfc624410625ae.jpg" alt="">
+                        <div class="portfolio-slider__item-box">
+                            <h2 class="title">Lorem ipsum</h2>
+                            <p class="info">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+                            <a href="#" class="link"><img src="assets/images/portfolio-link.svg" alt=""></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <nav class="social-midia">
+            <ul>
+                <li class="social-midia__item">
+                    <a href="#" target="_blank" class="social-midia__link">Facebook</a>
+                </li>
+                <li class="social-midia__item">
+                    <a href="#" target="_blank" class="social-midia__link">Instagram</a>
+                </li>
+                <li class="social-midia__item">
+                    <a href="#" target="_blank" class="social-midia__link">Github</a>
+                </li>
+            </ul>
+        </nav>
+
     </div>
 </body>
 </html>

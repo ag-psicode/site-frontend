@@ -4,10 +4,12 @@
     align-items: center;
 
     &__introduction {
-        // max-width: 455px;
+        flex-basis: 40%;
+    }
 
-        // &-inner {
-        //     max-width: 350px;
-        // }
+    &__page {
+        position: relative;
+        flex-basis: 60%;
+        height: 100vh;
     }
 }

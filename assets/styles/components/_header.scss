@@ -7,13 +7,14 @@
     left: 0;
     padding-left: inherit;
     padding-right: inherit;
+    z-index: map-get($z-index, header);
 
     &__brand {
         margin-right: 45px;
         font-weight: map-get($font-weight, medium);
         letter-spacing: 1px;
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     &__navigation {
@@ -26,7 +27,7 @@
 
         &-link {
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 10px;
             display: inline-block;
             letter-spacing: 1px;
 

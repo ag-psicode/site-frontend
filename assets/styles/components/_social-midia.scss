@@ -1,6 +1,7 @@
 .social-midia {
     position: absolute;
     bottom: 40px;
+    z-index: map-get($z-index, social-midia);
 
     &__item {
         display: inline-block;
@@ -8,7 +9,7 @@
     }
 
     &__link {
-        font-size: 14px;
+        font-size: 10px;
         text-transform: lowercase;
         display: inline-block;
     }
