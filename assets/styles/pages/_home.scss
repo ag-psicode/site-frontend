@@ -1,3 +1,17 @@
 body.home {
 
+    .content {
+
+        &__page {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .brand {
+        width: 100%;
+        max-width: 484px;
+        max-height: 108px;
+    }
+
 }

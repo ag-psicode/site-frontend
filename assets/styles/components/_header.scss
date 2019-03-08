@@ -38,4 +38,22 @@
             }
         }
     }
+
+    @media screen and (max-width: 768px) {
+        position: fixed;
+        height: 100vh;
+        background-color: antiquewhite;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        &__navigation {
+            margin-left: 0;
+
+            &-item {
+                display: block;
+                margin: 0;
+            }
+        }
+    }
 }

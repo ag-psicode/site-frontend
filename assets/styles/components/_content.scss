@@ -5,11 +5,31 @@
 
     &__introduction {
         flex-basis: 40%;
+
+        &-inner {
+            margin-right: 90px;
+            margin-top: 55px;
+        }
     }
 
     &__page {
         position: relative;
         flex-basis: 60%;
         height: 100vh;
+    }
+
+    @media screen and (max-width: 1300px) {
+        &__introduction,
+        &__page {
+            flex-basis: 50%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+
+        &__introduction-inner {
+            margin: 0;
+        }
     }
 }
