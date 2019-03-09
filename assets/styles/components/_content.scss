@@ -1,5 +1,4 @@
 .content {
-    height: 100vh;
     display: flex;
     align-items: center;
 
@@ -10,26 +9,35 @@
             margin-right: 90px;
             margin-top: 55px;
         }
+
+        .brand {
+            width: 100%;
+            max-width: 162px;
+            max-height: 36px;
+        }
     }
 
     &__page {
         position: relative;
         flex-basis: 60%;
-        height: 100vh;
-    }
-
-    @media screen and (max-width: 1300px) {
-        &__introduction,
-        &__page {
-            flex-basis: 50%;
-        }
     }
 
     @media screen and (max-width: 768px) {
-        flex-direction: column-reverse;
+        flex-direction: column;
 
-        &__introduction-inner {
-            margin: 0;
+        &__introduction {
+
+            .brand {
+                margin: 50px 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 100vh;
+
+        &__page {
+            height: 100vh;
         }
     }
 }

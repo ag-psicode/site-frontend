@@ -1,17 +1,44 @@
 body.home {
 
-    .content {
+    .content__page {
+        display: flex;
+        align-items: center;
 
+        .brand {
+            width: 100%;
+            max-width: 484px;
+            max-height: 108px;
+        }
+    }
+
+    @media screen and (max-width: 1300px) {
+        &__introduction,
         &__page {
+            flex-basis: 50%;
+        }
+
+        &__introduction {
             display: flex;
             align-items: center;
         }
     }
 
-    .brand {
-        width: 100%;
-        max-width: 484px;
-        max-height: 108px;
+    @media screen and (max-width: 768px) {
+
+        .content {
+            flex-direction: column-reverse;
+
+            &__introduction-inner {
+                margin: 0;
+            }
+
+            &__page {
+
+                .brand {
+                    margin: 50px 0;
+                }
+            }
+        }
     }
 
 }

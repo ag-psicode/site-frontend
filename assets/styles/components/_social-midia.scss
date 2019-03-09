@@ -13,4 +13,9 @@
         text-transform: lowercase;
         display: inline-block;
     }
+
+    @media screen and (max-width: 768px) {
+        position: static;
+        margin: 40px 0;
+    }
 }

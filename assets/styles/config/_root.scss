@@ -1,6 +1,6 @@
 html {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     box-sizing: border-box;
 }
 
@@ -13,6 +13,7 @@ html {
 body {
     background-color: map-get($colors, light);
     color: map-get($colors, dark);
+    line-height: 18px;
 }
 
 a {
@@ -26,8 +27,4 @@ ul {
 
 strong, b {
     font-weight: map-get($font-weight, medium);
-}
-
-p {
-    line-height: 18px;
 }
