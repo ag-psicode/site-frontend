@@ -2,12 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Is the current build a development build
 const IS_DEV = (process.env.NODE_ENV === 'dev');
 
 const dirNode = 'node_modules';
-const dirApp = path.join(__dirname, 'app');
+const dirApp = path.join(__dirname, 'app/pages');
 const dirAssets = path.join(__dirname, 'assets');
 
 /**
@@ -66,7 +67,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+
+        new VueLoaderPlugin()
     ],
     module: {
         rules: [
@@ -113,6 +116,12 @@ module.exports = {
                         }
                     },
                 ]
+            },
+
+            // VUE LOADER
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             },
 
             // IMAGES
