@@ -10,6 +10,7 @@ const IS_DEV = (process.env.NODE_ENV === 'dev');
 const dirNode = 'node_modules';
 const dirApp = path.join(__dirname, 'app/pages');
 const dirAssets = path.join(__dirname, 'assets');
+const dirVue = path.join(__dirname, 'app/vue');
 
 /**
  * Webpack Configuration
@@ -28,7 +29,8 @@ module.exports = {
         modules: [
             dirNode,
             dirApp,
-            dirAssets
+            dirAssets,
+            dirVue
         ]
     },
     plugins: [

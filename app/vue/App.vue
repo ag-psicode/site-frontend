@@ -1,13 +1,15 @@
-<template lang="html">
-    <div>
+<template>
 
+    <Quizz></Quizz>
 
-        HJDSAGDHJ
-    </div>
 </template>
 
 <script>
+import Quizz from 'components/Quizz.vue';
 export default {
+    components: {
+        Quizz,
+    }
 }
 </script>
 

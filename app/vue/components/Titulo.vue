@@ -1,11 +1,12 @@
-<template lang="html">
-    <div>
-        titulo
-    </div>
+<template>
+    <h2 class="xx">
+        <slot></slot>
+    </h2>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 
