@@ -1,38 +1,37 @@
 <template>
     <div>
+        <section v-if="this.step < questions.length">
+          <Question :question="questions[step]"></Question>
+          <ResponseSet :type="questions[step].type" :choices="questions[step].choices"></ResponseSet>
 
-        <Titulo v-show="step === 1">Pergunta 1</Titulo>
-        <Titulo v-show="step === 2">Pergunta 2</Titulo>
-        <Titulo v-show="step === 3">Pergunta 3</Titulo>
-        <Titulo v-show="step === 4">Pergunta 4</Titulo>
-        <Titulo v-show="step === 5">Pergunta 5</Titulo>
-
-        <button v-on:click="navigation(step-1)" class="prev" type="button">Prev</button>
-        <button v-on:click="navigation(step+1)" class="next" type="button">Next</button>
-
+          <button v-on:click="prev()" :disabled="!step" class="prev" type="button">Prev</button>
+          <button @click="next()" class="next" type="button">Next</button>
+        </section>
+        <section v-else>
+          Obrigado, entraremos em contato :)
+        </section>
     </div>
 </template>
 
 <script>
-import Titulo from 'components/Titulo.vue';
+import QuestionComponent from 'components/Question.vue';
+import ResponseSet from 'components/ResponseSet.vue';
+import Questions from '../questions/Questions.js';
 
 export default {
-    components: { Titulo },
+    components: { Question: QuestionComponent, ResponseSet },
     data: () => ({
-        step: 1
+        step: 0,
+        questions: Questions,
+        previous: null
     }),
     methods: {
-        navigation: function(stepPosition) {
-            if(stepPosition <= 0) {
-                console.log("acabou pra menos");
-            }
-            else if(stepPosition > 5) {
-                console.log("acabou pra mais");
-            }
-            else {
-                this.step = stepPosition;
-            }
-        }
+      prev: function(){
+        --this.step;
+      },
+      next: function() {
+        ++this.step;
+      }
     }
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
     <h2 class="xx">
-        <slot></slot>
     </h2>
 </template>
 
@@ -11,4 +10,7 @@ export default {
 </script>
 
 <style lang="css">
+h2 {
+  font-size: 26px;
+}
 </style>
