@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
+<body class="orcamento"> 
 
     <div class="wrapper">
 
@@ -28,7 +28,16 @@
             </nav>
         </header>
 
-        <div id="app"></div>
+
+        <div class="content">
+            <div class="content__introduction">
+                <img class="brand" src="assets/images/psicode-logo.svg" alt="Psicode">
+            </div>
+            <div class="content__page">
+              <div class="app__wrapper">
+                <div id="app"></div>
+              </div>
+        </div>
 
         <nav class="social-midia">
             <ul>
