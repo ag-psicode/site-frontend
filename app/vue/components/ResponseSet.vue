@@ -1,15 +1,15 @@
 <template>
     <div>
           <div v-if="type == 'phone'">
-            <input type="text" v-model="phone">
+            <input type="text" v-model="phone" @keyup="change()">
           </div>
 
           <div v-if="type == 'char'">
-            <input type="text" v-model="char">
+            <input type="text" v-model="char" @keyup="change()">
           </div>
 
           <div v-if="type == 'text'">
-            <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+            <textarea name="" id="" cols="30" rows="10" v-model="text" @keyup="change()"></textarea>
           </div>
 
           <div v-if="type == 'multiple'">
@@ -20,24 +20,32 @@
               </li>
             </ul>
           </div>
-          {{ multiple }}
     </div>
 </template>
 
 <script>
 export default {
     props: [ "type", "choices" ],
-    data: () => ({
-      phone: '',
-      char: '',
-      text: '',
-      multiple: []
-    }),
+    data: () => {
+      return {
+        phone: '',
+        char: '',
+        text: '',
+        multiple: []
+      }
+    },
     methods: {
+      reset() {
+        Object.assign(this.$data, this.$options.data.call(this));
+      },
       change() {
+        this.$parent.$emit('change', this.getResponse())
       },
       getResponse() {
         return this[this.type]
+      },
+      setData(value, key) {
+        this[key] = value
       }
     }
 }
