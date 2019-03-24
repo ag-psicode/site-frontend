@@ -19,6 +19,28 @@ const is_mobile = function() {
     }
 }
 
+const throttle = function(fn, wait) {
+    var time = Date.now();
+    return function() {
+        if ((time + wait - Date.now()) < 0) {
+            fn();
+            time = Date.now();
+        }
+    }
+}
+
+const debounce = (func, delay) => {
+    let inDebounce
+    return function() {
+        const context = this
+        const args = arguments
+        clearTimeout(inDebounce)
+        inDebounce = setTimeout(() =>
+        func.apply(context, args)
+        , delay)
+    }
+}
+
 var portfolio_slider = {
     init: function() {
         let obj;
@@ -27,10 +49,14 @@ var portfolio_slider = {
             obj = Object.assign(this.options.common, this.options.mobile);
         } else {
             obj = Object.assign(this.options.common, this.options.desktop);
-            document.addEventListener('wheel', this.findScrollDirection);
+            document.addEventListener('wheel', throttle(this.findScrollDirection, 1000));
         }
 
         this.slider = tns(obj);
+        setTimeout(function(){
+            portfolio_slider.listenersEventsAddClassOpaque();
+            portfolio_slider.addClassOpaque();
+        }, 500)
     },
     slider: {},
     options: {
@@ -59,17 +85,56 @@ var portfolio_slider = {
     findScrollDirection: function() {
         let delta;
 
-        if (event.wheelDelta){
+        if (event.wheelDelta) {
             delta = event.wheelDelta;
-        }else{
+        }else {
             delta = -1 * event.deltaY;
         }
 
-        if (delta < 0){
+        if (delta < 0) {
             portfolio_slider.slider.goTo('prev');
-        }else if (delta > 0){
+        }else if (delta > 0) {
             portfolio_slider.slider.goTo('next');
         }
+
+        portfolio_slider.addClassOpaque();
+    },
+    listenersEventsAddClassOpaque: function() {
+        let listeners = {
+            init: function() {
+                this.add_event(document.querySelector(".tns-controls button[data-controls='prev']"));
+                this.add_event(document.querySelector(".tns-controls button[data-controls='next']"));
+                this.add_event(document.querySelector(".tns-slider"));
+            },
+            add_event: function(element) {
+                element.addEventListener('click', function(){
+                    portfolio_slider.addClassOpaque();
+                })
+            }
+        };
+
+        listeners.init();
+    },
+    addClassOpaque: function() {
+
+        let clean = function() {
+            let klass = document.querySelectorAll(".tns-slide-active.opaque");
+
+            if( klass.length > 0 ) {
+                Object.keys(klass).map(function(objectKey, index) {
+                    klass[objectKey].classList.remove("opaque");
+                });
+            }
+        }
+
+        clean();
+
+        setTimeout(function(){
+            let item_active = document.querySelectorAll(".tns-slide-active");
+
+            item_active[0].classList.add("opaque");
+            item_active[2].classList.add("opaque");
+        }, 200)
     }
 }
 
