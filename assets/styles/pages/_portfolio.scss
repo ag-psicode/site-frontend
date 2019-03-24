@@ -18,15 +18,22 @@ body.portfolio {
             display: flex;
             align-items: center;
             height: 40vh;
-            transition: all 500ms;
+            transition: all 100ms;
 
-            &.opaque {
-                opacity: 0.7;
+            &.visible {
+                opacity: 1;
 
                 .portfolio-slider__item-box {
-                    opacity: 0;
-                    pointer-events: none;
+                    pointer-events: initial;
                 }
+
+                .portfolio-slider__image {
+                    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            @media screen and (min-width: 768px) {
+                opacity: .2;
             }
         }
 
@@ -34,12 +41,13 @@ body.portfolio {
             width: 100%;
             max-width: 450px;
             max-height: 100%;
-            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+            box-shadow: none;
             margin: 0 10px;
         }
 
         &__item-box {
             padding: 0 50px;
+            pointer-events: none;
 
             .title {
                 font-weight: map-get($font-weight, medium);
@@ -119,7 +127,6 @@ body.portfolio {
             outline: none;
             background: url('/assets/images/icon-arrow.svg') no-repeat center;
             background-size: 36px 8px;
-            transition: all 100ms;
         }
 
         button[data-controls="prev"] {

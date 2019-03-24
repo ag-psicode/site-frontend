@@ -50,13 +50,15 @@ var portfolio_slider = {
         } else {
             obj = Object.assign(this.options.common, this.options.desktop);
             document.addEventListener('wheel', throttle(this.findScrollDirection, 1000));
+
+            setTimeout(function(){
+                portfolio_slider.listenersEventsAddClassOpaque();
+                portfolio_slider.addVisible();
+            }, 500)
         }
 
         this.slider = tns(obj);
-        setTimeout(function(){
-            portfolio_slider.listenersEventsAddClassOpaque();
-            portfolio_slider.addClassOpaque();
-        }, 500)
+
     },
     slider: {},
     options: {
@@ -97,7 +99,7 @@ var portfolio_slider = {
             portfolio_slider.slider.goTo('next');
         }
 
-        portfolio_slider.addClassOpaque();
+        portfolio_slider.addVisible();
     },
     listenersEventsAddClassOpaque: function() {
         let listeners = {
@@ -108,21 +110,21 @@ var portfolio_slider = {
             },
             add_event: function(element) {
                 element.addEventListener('click', function(){
-                    portfolio_slider.addClassOpaque();
+                    portfolio_slider.addVisible();
                 })
             }
         };
 
         listeners.init();
     },
-    addClassOpaque: function() {
+    addVisible: function() {
 
         let clean = function() {
-            let klass = document.querySelectorAll(".tns-slide-active.opaque");
+            let klass = document.querySelectorAll(".tns-slide-active.visible");
 
             if( klass.length > 0 ) {
                 Object.keys(klass).map(function(objectKey, index) {
-                    klass[objectKey].classList.remove("opaque");
+                    klass[objectKey].classList.remove("visible");
                 });
             }
         }
@@ -131,9 +133,7 @@ var portfolio_slider = {
 
         setTimeout(function(){
             let item_active = document.querySelectorAll(".tns-slide-active");
-
-            item_active[0].classList.add("opaque");
-            item_active[2].classList.add("opaque");
+            item_active[1].classList.add("visible");
         }, 200)
     }
 }
