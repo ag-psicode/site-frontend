@@ -1,5 +1,4 @@
 body.home {
-    font-size: 14px;
 
     .content__page {
         display: flex;
@@ -12,7 +11,11 @@ body.home {
         }
     }
 
-    @media screen and (max-width: 1300px) {
+    .content__introduction-inner {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width: 1440px) {
         &__introduction,
         &__page {
             flex-basis: 50%;
